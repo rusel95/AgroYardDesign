@@ -32,11 +32,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkj-f7-W9x">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esw-LP-8wS">
-                                        <rect key="frame" x="40" y="220" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFZ-wD-dUr" userLabel="ghostView">
                                         <rect key="frame" x="0.0" y="-120" width="320" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="0.49690118715083798" colorSpace="calibratedWhite"/>

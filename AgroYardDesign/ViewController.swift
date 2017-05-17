@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     var defaultDistanceToTop = CGFloat(180)
     
@@ -26,12 +26,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.delegate = self
+        
         setGhostView()
         setScrollView()
     }
     
     func setScrollView() {
-        scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: 100)
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: dataView.bounds.height + ghostView.bounds.height)
+        print(scrollView.contentSize)
     }
     
     func setGhostView() {
@@ -55,6 +58,10 @@ class ViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
         
+        print(scrollView.contentSize)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         print(scrollView.contentSize)
     }
     
