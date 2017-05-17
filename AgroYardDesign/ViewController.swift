@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         ghostView.addGestureRecognizer(gestureRecognizer)
         ghostView.isUserInteractionEnabled = true
         
-        //ghostViewTop.constant = -1000
+//        ghostViewTop.constant = -1000
     }
     
     func tap() {
@@ -58,7 +58,6 @@ class ViewController: UIViewController {
         print(scrollView.contentSize)
     }
     
-    
-    
+
 }
 

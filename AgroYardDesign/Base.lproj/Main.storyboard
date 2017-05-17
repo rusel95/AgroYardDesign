@@ -32,9 +32,17 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkj-f7-W9x">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esw-LP-8wS">
+                                        <rect key="frame" x="40" y="220" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFZ-wD-dUr" userLabel="ghostView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                        <rect key="frame" x="0.0" y="-120" width="320" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="0.49690118715083798" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Y4j-eG-SNS"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLi-zX-NDH" userLabel="data">
                                         <rect key="frame" x="13" y="180" width="294" height="371"/>
@@ -209,7 +217,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XFZ-wD-dUr" firstAttribute="centerX" secondItem="zkj-f7-W9x" secondAttribute="centerX" id="2mz-cM-jqM"/>
-                                    <constraint firstItem="XFZ-wD-dUr" firstAttribute="top" secondItem="zkj-f7-W9x" secondAttribute="top" id="Cix-CF-z9d"/>
                                     <constraint firstItem="tLi-zX-NDH" firstAttribute="leading" secondItem="zkj-f7-W9x" secondAttribute="leading" constant="13" id="Hdz-gW-j41"/>
                                     <constraint firstAttribute="trailing" secondItem="tLi-zX-NDH" secondAttribute="trailing" constant="13" id="STV-6L-hl2"/>
                                     <constraint firstItem="XFZ-wD-dUr" firstAttribute="width" secondItem="zkj-f7-W9x" secondAttribute="width" id="Wfd-Zs-LR4"/>
@@ -238,7 +245,6 @@
                         <outlet property="dataView" destination="tLi-zX-NDH" id="RBf-Ni-sOl"/>
                         <outlet property="dataViewTop" destination="g01-2e-jvT" id="R1d-C0-fnW"/>
                         <outlet property="ghostView" destination="XFZ-wD-dUr" id="eYR-qr-QAc"/>
-                        <outlet property="ghostViewTop" destination="Cix-CF-z9d" id="t3I-FK-Z6b"/>
                         <outlet property="profileImageView" destination="bfA-14-gpz" id="p1Z-7E-xid"/>
                         <outlet property="profileImageViewTop" destination="QBb-dS-Tce" id="hMD-qa-nrw"/>
                         <outlet property="scrollView" destination="zkj-f7-W9x" id="vw6-nc-gtl"/>
