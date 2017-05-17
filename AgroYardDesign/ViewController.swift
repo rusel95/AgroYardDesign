@@ -27,10 +27,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setGhostView()
+        setScrollView()
     }
     
     func setScrollView() {
-        scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: 900)
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: 100)
     }
     
     func setGhostView() {
@@ -53,6 +54,8 @@ class ViewController: UIViewController {
             self.dataViewTop.constant = neededConstant
             self.view.layoutIfNeeded()
         })
+        
+        print(scrollView.contentSize)
     }
     
     
