@@ -34,6 +34,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         setImageView()
         setScrollView()
         setDataView()
+        setSwipes()
+    }
+    
+    func setSwipes() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture) )
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture) )
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
     }
     
     func setScrollView() {
@@ -61,11 +72,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         if dataToTop.constant == defaultDataToTop {
             neededConstant = positionAfterTap
             tempProfileImageHeight = positionAfterTap
-            contentHeight.constant = 750
         } else {
             neededConstant = defaultDataToTop
             tempProfileImageHeight = defaultImageHeight
-            contentHeight.constant = 570
         }
         
         UIView.animate(withDuration: 1, animations: {
@@ -82,6 +91,38 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         if currentPosition < 0 {
             profileImageTopToContainer.constant = currentPosition
             profileImageHeight.constant = defaultImageHeight - currentPosition
+        }
+    }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            var neededConstant = CGFloat()
+            var tempProfileImageHeight = CGFloat()
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.dataToTop.constant = neededConstant
+                self.profileImageHeight.constant = tempProfileImageHeight
+                self.view.layoutIfNeeded()
+            })
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.down:
+                neededConstant = positionAfterTap
+                tempProfileImageHeight = positionAfterTap
+            case UISwipeGestureRecognizerDirection.up:
+                neededConstant = defaultDataToTop
+                tempProfileImageHeight = defaultImageHeight
+            default:
+                break
+            }
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.dataToTop.constant = neededConstant
+                self.profileImageHeight.constant = tempProfileImageHeight
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
