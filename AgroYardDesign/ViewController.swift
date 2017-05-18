@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
-    var defaultVerticalToImage = CGFloat(-60)
+    var defaultDataToTop = CGFloat(290)
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
    
     @IBOutlet weak var contentView: UIView!
     
-    @IBOutlet weak var dataViewVerticalToImage: NSLayoutConstraint!
+    @IBOutlet weak var dataToTop: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,14 +42,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
     func tap() {
         var neededConstant = CGFloat()
-        if dataViewVerticalToImage.constant == defaultVerticalToImage {
-            neededConstant = 0
+        if dataToTop.constant == defaultDataToTop {
+            neededConstant = profileImageView.frame.height
         } else {
-            neededConstant = defaultVerticalToImage
+            neededConstant = defaultDataToTop
         }
 
         UIView.animate(withDuration: 0.5, animations: {
-            self.dataViewVerticalToImage.constant = neededConstant
+            self.dataToTop.constant = neededConstant
             self.view.layoutIfNeeded()
         })
     }
@@ -58,9 +58,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let currentPosition = scrollView.contentOffset.y
         if currentPosition < 0 {
             profileImageTopToContainer.constant = currentPosition
+        } else if currentPosition > 0 {
+                profileImageTopToContainer.constant = currentPosition / 2.0
         }
-        
         print(currentPosition)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y > 120 {
+            scrollView.contentOffset.y = 120
+        }
     }
 
 }

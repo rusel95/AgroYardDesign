@@ -438,11 +438,11 @@
                                             <constraint firstAttribute="trailing" secondItem="ed3-Qu-yGC" secondAttribute="trailing" constant="16" id="Cni-Aq-xKf"/>
                                             <constraint firstItem="J9v-Ue-8lU" firstAttribute="leading" secondItem="VdL-1p-DYg" secondAttribute="leading" id="Ok6-6Y-brx"/>
                                             <constraint firstItem="J9v-Ue-8lU" firstAttribute="top" secondItem="VdL-1p-DYg" secondAttribute="top" id="ZSz-jZ-vlL"/>
-                                            <constraint firstItem="ed3-Qu-yGC" firstAttribute="top" secondItem="J9v-Ue-8lU" secondAttribute="bottom" constant="-60" id="aHk-no-wgX"/>
                                             <constraint firstAttribute="height" constant="1000" id="cvV-lt-qaR"/>
                                             <constraint firstAttribute="trailing" secondItem="J9v-Ue-8lU" secondAttribute="trailing" id="kSA-Qg-rER"/>
                                             <constraint firstAttribute="bottom" secondItem="ed3-Qu-yGC" secondAttribute="bottom" constant="16" id="m8j-kY-pdH"/>
                                             <constraint firstItem="ed3-Qu-yGC" firstAttribute="leading" secondItem="VdL-1p-DYg" secondAttribute="leading" constant="16" id="xf4-kQ-Phm"/>
+                                            <constraint firstItem="ed3-Qu-yGC" firstAttribute="top" secondItem="VdL-1p-DYg" secondAttribute="top" constant="290" id="zHe-5k-5IX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
@@ -470,7 +470,8 @@
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="contentView" destination="VdL-1p-DYg" id="tBd-LJ-NAQ"/>
-                        <outlet property="dataViewVerticalToImage" destination="aHk-no-wgX" id="6L1-ue-Q2C"/>
+                        <outlet property="dataToTop" destination="zHe-5k-5IX" id="Ra8-rc-JGr"/>
+                        <outlet property="profileImageTopToContainer" destination="ZSz-jZ-vlL" id="gst-H2-VoA"/>
                         <outlet property="profileImageView" destination="J9v-Ue-8lU" id="XcH-Q3-IhL"/>
                         <outlet property="scrollView" destination="fYF-zn-0b6" id="XG1-fP-IZq"/>
                     </connections>
