@@ -9,16 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
-    
-    var defaultDataToTop = CGFloat(290)
+    var defaultImageHeight = CGFloat(200)
+    var defaultDataToTop = CGFloat(160)
+    var positionAfterTap = CGFloat(350)
+    var minimalOffset = CGFloat(0)
+    var maximalOffset = CGFloat(0)
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageTopToContainer: NSLayoutConstraint!
-   
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var profileImageHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var dataToTop: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,48 +33,57 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         setImageView()
         setScrollView()
+        setDataView()
     }
     
     func setScrollView() {
         scrollView.contentSize = contentView.bounds.size
     }
-
+    
+    func setDataView() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tap))
+        dataView.addGestureRecognizer(gestureRecognizer)
+        dataView.isUserInteractionEnabled = true
+    }
+    
     func setImageView() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tap))
         profileImageView.addGestureRecognizer(gestureRecognizer)
         profileImageView.isUserInteractionEnabled = true
         
     }
-
+    
     func tap() {
+        
         var neededConstant = CGFloat()
+        var tempProfileImageHeight = CGFloat()
+        
         if dataToTop.constant == defaultDataToTop {
-            neededConstant = profileImageView.frame.height
+            neededConstant = positionAfterTap
+            tempProfileImageHeight = positionAfterTap
+            contentHeight.constant = 750
         } else {
             neededConstant = defaultDataToTop
+            tempProfileImageHeight = defaultImageHeight
+            contentHeight.constant = 570
         }
-
-        UIView.animate(withDuration: 0.5, animations: {
+        
+        UIView.animate(withDuration: 1, animations: {
             self.dataToTop.constant = neededConstant
+            self.profileImageHeight.constant = tempProfileImageHeight
             self.view.layoutIfNeeded()
         })
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPosition = scrollView.contentOffset.y
+        
         if currentPosition < 0 {
             profileImageTopToContainer.constant = currentPosition
-        } else if currentPosition > 0 {
-                profileImageTopToContainer.constant = currentPosition / 2.0
+            profileImageHeight.constant = defaultImageHeight - currentPosition
         }
-        print(currentPosition)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > 120 {
-            scrollView.contentOffset.y = 120
-        }
-    }
-
 }
 

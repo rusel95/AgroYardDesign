@@ -249,24 +249,24 @@
                         <viewControllerLayoutGuide type="bottom" id="rKf-iu-wIH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fmu-4f-8b5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYF-zn-0b6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-1p-DYg" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jesus-kiteque-224069" translatesAutoresizingMaskIntoConstraints="NO" id="J9v-Ue-8lU">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="6dI-2Y-UwZ"/>
-                                                    <constraint firstAttribute="height" constant="350" id="TWq-t0-Qak"/>
+                                                    <constraint firstAttribute="height" constant="200" id="TWq-t0-Qak"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ed3-Qu-yGC" userLabel="DataView">
-                                                <rect key="frame" x="16" y="290" width="288" height="694"/>
+                                                <rect key="frame" x="16" y="160" width="288" height="390"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="31n-re-Yai">
                                                         <rect key="frame" x="20" y="16" width="248" height="309"/>
@@ -427,6 +427,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="o9o-eM-jk0" secondAttribute="trailing" constant="20" id="NMW-QJ-IXg"/>
                                                     <constraint firstItem="31n-re-Yai" firstAttribute="leading" secondItem="ed3-Qu-yGC" secondAttribute="leading" constant="20" id="PX8-2M-Zar"/>
                                                     <constraint firstItem="nvL-es-lLL" firstAttribute="top" secondItem="ed3-Qu-yGC" secondAttribute="top" constant="-30" id="drX-Nl-Rsz"/>
+                                                    <constraint firstAttribute="height" constant="390" id="eIH-hS-FTx"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
@@ -438,11 +439,10 @@
                                             <constraint firstAttribute="trailing" secondItem="ed3-Qu-yGC" secondAttribute="trailing" constant="16" id="Cni-Aq-xKf"/>
                                             <constraint firstItem="J9v-Ue-8lU" firstAttribute="leading" secondItem="VdL-1p-DYg" secondAttribute="leading" id="Ok6-6Y-brx"/>
                                             <constraint firstItem="J9v-Ue-8lU" firstAttribute="top" secondItem="VdL-1p-DYg" secondAttribute="top" id="ZSz-jZ-vlL"/>
-                                            <constraint firstAttribute="height" constant="1000" id="cvV-lt-qaR"/>
+                                            <constraint firstAttribute="height" constant="750" id="cvV-lt-qaR"/>
                                             <constraint firstAttribute="trailing" secondItem="J9v-Ue-8lU" secondAttribute="trailing" id="kSA-Qg-rER"/>
-                                            <constraint firstAttribute="bottom" secondItem="ed3-Qu-yGC" secondAttribute="bottom" constant="16" id="m8j-kY-pdH"/>
                                             <constraint firstItem="ed3-Qu-yGC" firstAttribute="leading" secondItem="VdL-1p-DYg" secondAttribute="leading" constant="16" id="xf4-kQ-Phm"/>
-                                            <constraint firstItem="ed3-Qu-yGC" firstAttribute="top" secondItem="VdL-1p-DYg" secondAttribute="top" constant="290" id="zHe-5k-5IX"/>
+                                            <constraint firstItem="ed3-Qu-yGC" firstAttribute="top" secondItem="VdL-1p-DYg" secondAttribute="top" constant="160" id="zHe-5k-5IX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
@@ -467,10 +467,13 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1000"/>
+                    <size key="freeformSize" width="320" height="750"/>
                     <connections>
+                        <outlet property="contentHeight" destination="cvV-lt-qaR" id="eHC-Wq-8Am"/>
                         <outlet property="contentView" destination="VdL-1p-DYg" id="tBd-LJ-NAQ"/>
                         <outlet property="dataToTop" destination="zHe-5k-5IX" id="Ra8-rc-JGr"/>
+                        <outlet property="dataView" destination="ed3-Qu-yGC" id="gYY-Wh-kGe"/>
+                        <outlet property="profileImageHeight" destination="TWq-t0-Qak" id="1QT-MV-ByZ"/>
                         <outlet property="profileImageTopToContainer" destination="ZSz-jZ-vlL" id="gst-H2-VoA"/>
                         <outlet property="profileImageView" destination="J9v-Ue-8lU" id="XcH-Q3-IhL"/>
                         <outlet property="scrollView" destination="fYF-zn-0b6" id="XG1-fP-IZq"/>
